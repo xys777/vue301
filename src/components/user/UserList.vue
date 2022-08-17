@@ -1,28 +1,42 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useUserStore } from '@/stores/user'
+import { ref, onMounted } from "vue";
 import UserGird from "../common/Grid.vue";
-const store = useUserStore()
-const { userList, selectedUser,setUserList,selectUser } = store
+import { storeToRefs } from "pinia";
+
+import { useUserStore } from "../../stores/user";
+import type { User } from "../../stores/user";
+const store = useUserStore();
 const searchQuery = ref("");
-const gridColumns = ["ID", "name", "age", "phone number","power"];
-const gridData = [
-  {ID:0, name: "Chuck Norris",age:33, "phone number":"39584650",power: Infinity },
-  {ID:1, name: "Bruce Lee", age:40, "phone number":"39584720",power: 9000 },
-  {ID:2, name: "Jackie Chan", age:25, "phone number":"39584678",power: 7000 },
-  {ID:3, name: "Jet Li", age:54, "phone number":"39584245",power: 8000 },
-];
-setUserList(gridData)
+const gridColumns = ["id", "name", "username", "phone", "email"];
+const { selectedUser } = storeToRefs(useUserStore());
+
+const selectUser = (user: User) =>
+  store.$patch((state) => (state.selectedUser = user));
 </script>
 
 <template>
-  <form id="search">
-    Search <input name="query" v-model="searchQuery">
-  </form>
-  <UserGird
-    :data="userList"
-    :columns="gridColumns"
-    :filter-key="searchQuery"
-    @selectRow="selectUser"
-  ></UserGird>
+  <div data-test="userlist">
+    <div class="toolbar row" data-test="tools">
+      <div class="grow" data-test="search">
+        Search <input name="query" v-model="searchQuery" />
+      </div>
+      <div data-test="actions">
+        <button @click="store.addUser">New</button>
+        <button @click="store.delUser">Delete</button>
+      </div>
+    </div>
+    <UserGird
+      :data="store.userList"
+      :columns="gridColumns"
+      :filter-key="searchQuery"
+      :activeRow="selectedUser"
+      @selectRow="selectUser"
+    >
+    </UserGird>
+  </div>
 </template>
+
+<style scoped>
+.toolbar {
+}
+</style>

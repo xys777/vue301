@@ -5,22 +5,18 @@ import HelloWorld from "./components/home/HelloWorld.vue";
 
 <template>
   <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
+    <div class="topnav">
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/user">User</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav>
+      <div class="search-container">
+        <form action="/action_page.php">
+          <input type="text" placeholder="Search.." name="search" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     </div>
   </header>
 
@@ -28,65 +24,72 @@ import HelloWorld from "./components/home/HelloWorld.vue";
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+
+.topnav {
+  overflow: hidden;
+  background-color: #e9e9e9;
 }
 
-.logo {
+.topnav a {
+  float: left;
   display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+  color: black;
   text-align: center;
-  margin-top: 2rem;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.topnav a.active {
+  background-color: #2196F3;
+  color: white;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.topnav .search-container {
+  float: right;
 }
 
-nav a:first-of-type {
-  border: 0;
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.topnav .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
   }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
     text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
   }
 }
 </style>
