@@ -1,49 +1,57 @@
 // https://docs.cypress.io/api/introduction/api.html
 
-describe("User page Test", () => {
-  beforeEach(() => {});
+describe("User List Actions Test", () => {
+  beforeEach(() => { cy.visit("/user"); });
 
-  describe("loading status test", () => {
-    it("check loading element", () => {
+  describe("search test", () => {
+    it("should show 0 row when type xxxzzz to search", () => {
+      cy.get('[data-test="search"] > input')
+        .type('xxxzzz').should('have.value', 'xxxzzz')
+      cy.get('table>tbody>tr').should('have.length', 0)
+    });
+    it("should show 1 row when type bret to search ", () => {
+      cy.get('[data-test="search"] > input')
+        .type('bret').should('have.value', 'bret')
+      cy.get('table>tbody>tr').should('have.length', 1)
+    });
+    it("should show all rows when delete the words in search", () => {
+      cy.get('[data-test="search"] > input').type('le')
+      cy.get('table>tbody>tr').should('have.length', 7)
+      cy.get('[data-test="search"] > input').type('{backspace}{backspace}').should('have.value', '')
+      cy.get('table>tbody>tr').should('have.length', 10)
+    });
+  });
+
+  describe("click on row test", () => {
+    const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    it("should highlight the row when click on each row", () => {
+      arr.map(i => cy.get(`[data-test="row:${i}"] > td`).should('not.have.class', 'active'))
+      arr.map(i => {
+        cy.get(`[data-test="row:${i}"] `).click()
+        arr.map(j => cy.get(`[data-test="row:${j}"] > td`).should(j == i ? 'have.class' : 'not.have.class', 'active'))
+      })
+    });
+
+    it("should show the detail data when click on each row", () => {
+      let body: {
+        [x: string]: any //docs.cypress.io/api/introduction/api.html
+        ; id: any;
+      }[] = []
       cy.intercept("GET", "/api/users", (req) => {
-        req.on("response", (res) => {
-          // Throttle the response to 1 Mbps to simulate a
-          // mobile 3G connection
-          res.setDelay(2000);
-          // res.setThrottle(10);
-        });
+        delete req.headers['if-none-match'];
       }).as("getUsers");
-      cy.visit("/user");
-
-      cy.get("div.loader").should("be.visible");
+      cy.wait('@getUsers').then((interception) => {
+        assert.isNotNull(interception.response, '1st API call has data')
+        
+        body = interception.response?.body   
+        arr.map(i => {
+          cy.get(`[data-test="row:${i}"] `).click()
+          cy.get('#id').should('have.value', body[i].id)
+          cy.get('#name').should('have.value', body[i].name)
+        })     
+      })
     });
+
   });
 
-  describe("error status test", () => {
-    it("check error element", () => {
-      cy.intercept("GET", "/api/users", (req) => {
-        req.reply({
-          statusCode: 500,
-          delay: 10, // milliseconds
-          throttleKbps: 1000, // to simulate a 3G connection
-          forceNetworkError: false, // default
-        });
-      }).as("getUsers");
-      cy.visit("/user");
-
-      cy.get("p.error").should("be.visible");
-    });
-  });
-
-  describe("normal status test", () => {
-    it("fetch users from stub data", () => {
-      cy.intercept("GET", "/api/users", { fixture: "users.json" });
-      cy.visit("/user");
-      cy.get('[data-test^="row:"]').should('have.length', 10)
-    });
-    it("fetch users from real backend", () => {
-      cy.visit("/user");
-      cy.get('[data-test^="row:"]').should('have.length', 10)
-    });
-  });
 });
