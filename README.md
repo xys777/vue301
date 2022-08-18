@@ -6,7 +6,7 @@ A demo project created by vue cli. Implemented a user list module with CURD acti
 
 E2E Testing:
 
-[![Watch the video]()]https://youtu.be/Tp5AB4-PZmE
+[![Watch the video](https://i9.ytimg.com/vi_webp/Tp5AB4-PZmE/mqdefault.webp?sqp=CLjb-ZcG&rs=AOn4CLCc4_yvj45cuCuzwED5aLQBA3gT_A)]https://youtu.be/Tp5AB4-PZmE
 
 https://www.veed.io/view/c5ef021f-acd7-4a49-b0af-877c13009754?sharingWidget=true
 
