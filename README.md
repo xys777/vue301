@@ -5,14 +5,12 @@ A demo project created by vue cli. Implemented a user list module with CURD acti
 <img width="937" alt="image" src="https://user-images.githubusercontent.com/6148010/185306433-1adef08d-baeb-4691-860d-45c6f46ac9e6.png">
 
 E2E Testing:
-<video id="video" controls="" preload="none" poster="https://i9.ytimg.com/vi_webp/Tp5AB4-PZmE/mqdefault.webp?sqp=CLjb-ZcG&rs=AOn4CLCc4_yvj45cuCuzwED5aLQBA3gT_A">
-      <source id="mp4" src="https://www.youtube.com/watch?v=Tp5AB4-PZmE" type="video/mp4">
-</videos>
 
-<video src="https://www.youtube.com/watch?v=Tp5AB4-PZmE" controls="controls" width="500" height="300"></video>
-[![Watch the video](https://i9.ytimg.com/vi_webp/Tp5AB4-PZmE/mqdefault.webp?sqp=CLjb-ZcG&rs=AOn4CLCc4_yvj45cuCuzwED5aLQBA3gT_A)](https://www.youtube.com/watch?v=Tp5AB4-PZmE)
+[![](https://i9.ytimg.com/vi_webp/Tp5AB4-PZmE/mqdefault.webp?sqp=CLjb-ZcG&rs=AOn4CLCc4_yvj45cuCuzwED5aLQBA3gT_A)](https://www.veed.io/view/c5ef021f-acd7-4a49-b0af-877c13009754?sharingWidget=true)
 
-https://www.veed.io/view/c5ef021f-acd7-4a49-b0af-877c13009754?sharingWidget=true
+[![](https://i9.ytimg.com/vi_webp/Tp5AB4-PZmE/mqdefault.webp?sqp=CLjb-ZcG&rs=AOn4CLCc4_yvj45cuCuzwED5aLQBA3gT_A)](https://www.youtube.com/watch?v=Tp5AB4-PZmE)
+
+
 
 ## Recommended IDE Setup
 
