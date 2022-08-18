@@ -1,6 +1,10 @@
 # vue301
 
-This template should help get you started developing with Vue 3 in Vite.
+A demo project created by vue cli. Implemented a user list module with CURD actions and unit testing and E2E testing.
+
+<img width="937" alt="image" src="https://user-images.githubusercontent.com/6148010/185306433-1adef08d-baeb-4691-860d-45c6f46ac9e6.png">
+
+
 
 ## Recommended IDE Setup
 
