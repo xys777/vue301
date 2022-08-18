@@ -4,6 +4,10 @@ A demo project created by vue cli. Implemented a user list module with CURD acti
 
 <img width="937" alt="image" src="https://user-images.githubusercontent.com/6148010/185306433-1adef08d-baeb-4691-860d-45c6f46ac9e6.png">
 
+E2E Testing:
+
+[![Watch the video]()]https://youtu.be/Tp5AB4-PZmE
+
 https://www.veed.io/view/c5ef021f-acd7-4a49-b0af-877c13009754?sharingWidget=true
 
 ## Recommended IDE Setup
