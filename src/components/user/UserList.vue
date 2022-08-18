@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import UserGird from "../common/Grid.vue";
+import UserGird from "../common/SimpleGrid.vue";
 import { storeToRefs } from "pinia";
 
 import { useUserStore } from "../../stores/user";
@@ -21,8 +21,8 @@ const selectUser = (user: User) =>
         Search <input name="query" v-model="searchQuery" />
       </div>
       <div data-test="actions">
-        <button @click="store.addUser">New</button>
-        <button @click="store.delUser">Delete</button>
+        <button @click="store.addUser" data-test="new">New</button>
+        <button @click="store.delUser" data-test="delete">Delete</button>
       </div>
     </div>
     <UserGird

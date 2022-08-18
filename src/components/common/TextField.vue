@@ -6,7 +6,7 @@ const props = defineProps({
   modelValue: String,
 });
 const name = computed(() => label2name(props.label));
-function label2name(str: string = "") {
+function label2name(str = "") {
   return str.replace(/ /g, "").toLowerCase();
 }
 </script>
@@ -18,11 +18,14 @@ function label2name(str: string = "") {
     :name="name"
     :placeholder="`Your ${label}`"
     :value="modelValue"
-    @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
+    @input="
+      $emit('update:modelValue', ($event.target as HTMLInputElement).value)
+    "
   />
 </template>
 <style scoped>
-input[type=text], select {
+input[type="text"],
+select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;

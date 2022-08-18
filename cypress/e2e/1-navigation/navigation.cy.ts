@@ -13,22 +13,22 @@ describe("Navigation Test", () => {
     cy.visit("/about");
     cy.contains("h1", "This is an about page");
   });
-  
+
   it("clicks on the user link", () => {
-    cy.contains('User').click() 
-    cy.url().should('include', '/user')
-    cy.contains("div", "Search")
+    cy.contains("User").click();
+    cy.url().should("include", "/user");
+    cy.contains("div", "Search");
   });
-  
+
   it("clicks on the about link", () => {
-    cy.contains('About').click() 
-    cy.url().should('include', '/about')
-    cy.contains("h1", "This is an about page")
+    cy.contains("About").click();
+    cy.url().should("include", "/about");
+    cy.contains("h1", "This is an about page");
   });
-  
+
   it("clicks on the home link", () => {
-    cy.contains('Home').click() 
-    cy.url().should('not.include', '/home')
+    cy.contains("Home").click();
+    cy.url().should("not.include", "/home");
     cy.contains("h3", "Documentation");
   });
 });

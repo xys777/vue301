@@ -24,7 +24,6 @@ import HelloWorld from "./components/home/HelloWorld.vue";
 </template>
 
 <style scoped>
-
 .topnav {
   overflow: hidden;
   background-color: #e9e9e9;
@@ -46,7 +45,7 @@ import HelloWorld from "./components/home/HelloWorld.vue";
 }
 
 .topnav a.active {
-  background-color: #2196F3;
+  background-color: #2196f3;
   color: white;
 }
 
@@ -54,7 +53,7 @@ import HelloWorld from "./components/home/HelloWorld.vue";
   float: right;
 }
 
-.topnav input[type=text] {
+.topnav input[type="text"] {
   padding: 6px;
   margin-top: 8px;
   font-size: 17px;
@@ -80,7 +79,9 @@ import HelloWorld from "./components/home/HelloWorld.vue";
   .topnav .search-container {
     float: none;
   }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
+  .topnav a,
+  .topnav input[type="text"],
+  .topnav .search-container button {
     float: none;
     display: block;
     text-align: left;
@@ -88,8 +89,8 @@ import HelloWorld from "./components/home/HelloWorld.vue";
     margin: 0;
     padding: 14px;
   }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
+  .topnav input[type="text"] {
+    border: 1px solid #ccc;
   }
 }
 </style>

@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-interface Props {
-  columns: string[]
-  data: any[]  
-  filterKey?: string
-  activeRow?: any
-}
-const props = defineProps<Props>()
+const props = defineProps<{
+  columns: string[];
+  data: any[];
+  filterKey?: string;
+  activeRow?: any;
+}>();
 const emit = defineEmits(["select-row"]);
 
 const sortKey = ref("");
@@ -21,7 +20,11 @@ const filteredData = computed(() => {
     filterKey = filterKey.toLowerCase();
     data = data.filter((row: any) => {
       return Object.keys(row).some((key) => {
-        return String(row[key]).toLowerCase().indexOf(filterKey as string) > -1;
+        return (
+          String(row[key])
+            .toLowerCase()
+            .indexOf(filterKey as string) > -1
+        );
       });
     });
   }
@@ -56,7 +59,7 @@ function selectRow(entry: any) {
       <thead>
         <tr data-test="title">
           <th
-            v-for="(key,index) in columns"
+            v-for="key in columns"
             :key="key"
             @click="sortBy(key)"
             :class="{ active: sortKey == key }"

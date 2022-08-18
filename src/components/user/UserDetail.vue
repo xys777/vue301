@@ -15,10 +15,10 @@ const { userDetail } = storeToRefs(store);
 <template>
   <div class="form" data-test="form">
     <form @submit.prevent="store.updateUser">
-      <TextField label="ID" v-model="userDetail.id"></TextField>
-      <TextField label="Name" v-model="userDetail.name"></TextField>
-      <TextField label="User Name" v-model="userDetail.username"></TextField>
-      <TextField label="Email" v-model="userDetail.email"></TextField>
+      <TextField label="ID" v-model="userDetail.id" />
+      <TextField label="Name" v-model="userDetail.name" />
+      <TextField label="User Name" v-model="userDetail.username" />
+      <TextField label="Email" v-model="userDetail.email" />
 
       <label for="address">Address</label>
       <div class="address row space">
@@ -48,11 +48,11 @@ const { userDetail } = storeToRefs(store);
         />
       </div>
 
-      <TextField label="Phone" v-model="userDetail.phone"></TextField>
-      <TextField label="Web site" v-model="userDetail.website"></TextField>
+      <TextField label="Phone" v-model="userDetail.phone" />
+      <TextField label="Web site" v-model="userDetail.website" />
 
       <label for="">Company</label>
-      <div class="row space">
+      <div class="row space" data-test="company">
         <input
           class="company-item"
           name="name"
