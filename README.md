@@ -4,13 +4,18 @@ A demo project created by vue cli. Implemented a user list module with CURD acti
 
 <img width="937" alt="image" src="https://user-images.githubusercontent.com/6148010/185306433-1adef08d-baeb-4691-860d-45c6f46ac9e6.png">
 
-E2E Testing video (2/8):
+E2E Testing video (3/8):
 
 https://user-images.githubusercontent.com/6148010/185454096-8fe33a42-8d83-450d-ac90-a0f3be88319b.mp4 
 
 https://user-images.githubusercontent.com/6148010/185454177-e054d006-1bf8-4869-9580-bb7eaeb01985.mp4
 
-|https://user-images.githubusercontent.com/6148010/185454096-8fe33a42-8d83-450d-ac90-a0f3be88319b.mp4 |https://user-images.githubusercontent.com/6148010/185454177-e054d006-1bf8-4869-9580-bb7eaeb01985.mp4|
+
+
+https://user-images.githubusercontent.com/6148010/185456195-45ce6d07-13b0-4aa8-bc3d-0a0f60c64a5e.mp4
+
+
+
 
 ## Project Setup
 
